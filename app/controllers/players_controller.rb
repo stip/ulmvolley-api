@@ -2,7 +2,6 @@ class PlayersController < ApplicationController
 
 	before_action :set_player, only: [:show]
 
-
 	def index
 		@players = Player.all
 		json_response(@players)

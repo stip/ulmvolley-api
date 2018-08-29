@@ -2,7 +2,7 @@ require 'vpim/vcard'
 require 'vpim/icalendar'
 
 class LeaguesController < ApplicationController
-	before_action :set_league, only: []
+	before_action :set_league, only: [:show]
 
 	def show
 	    vlwData = LeaguesHelper.download_schedule('2018', 74521)
@@ -26,7 +26,8 @@ class LeaguesController < ApplicationController
 	      f.write(calendar.export)
 	    end
 			
-		json_response(vlwData) 
+  #	print"#{json_response(vlwData)}"
+		json_response(@league)
 	end
 
 private

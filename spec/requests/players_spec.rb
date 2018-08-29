@@ -3,10 +3,10 @@ require 'rails_helper'
 RSpec.describe 'Ulmvolley API - players', type: :request do
 
 	let!(:players) { create_list(:player, 10) }
-	let(:player_id) { players.first.id }
+  let(:player_id) { players.first.id }
 
-	# test GET /todos
-	describe 'GET/players' do
+
+  describe 'GET/players' do
 
 		before { get '/players' }
 
@@ -44,6 +44,7 @@ RSpec.describe 'Ulmvolley API - players', type: :request do
 			end
 		end
 	end
+
 
 	describe 'POST/players' do
 		
