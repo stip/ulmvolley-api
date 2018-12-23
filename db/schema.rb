@@ -12,35 +12,34 @@
 
 ActiveRecord::Schema.define(version: 2018_08_25_175447) do
 
-  create_table "attendances", force: :cascade do |t|
-    t.integer "player_id", null: false
-    t.integer "training_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["player_id"], name: "index_attendances_on_player_id"
-    t.index ["training_id"], name: "index_attendances_on_training_id"
+  create_table 'attendances', force: :cascade do |t|
+    t.integer 'player_id', null: false
+    t.integer 'training_id', null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['player_id'], name: 'index_attendances_on_player_id'
+    t.index ['training_id'], name: 'index_attendances_on_training_id'
   end
 
-  create_table "leagues", force: :cascade do |t|
-    t.string "name"
-    t.integer "league_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'leagues', force: :cascade do |t|
+    t.string 'name'
+    t.integer 'league_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "players", force: :cascade do |t|
-    t.string "name"
-    t.string "nick"
-    t.date "birthday"
-    t.integer "league"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'players', force: :cascade do |t|
+    t.string 'name'
+    t.string 'nick'
+    t.date 'birthday'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "trainings", force: :cascade do |t|
-    t.datetime "at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'trainings', force: :cascade do |t|
+    t.datetime 'at'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
 end

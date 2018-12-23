@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.1'
+ruby '2.5.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
@@ -25,10 +25,15 @@ gem 'puma', '~> 3.11'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
-gem 'active_model_serializers'
+gem 'active_model_serializers', '~> 0.10.0'
+
+# Gemfile
+gem 'rack-cors'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
+
+gem 'rack-reducer', require: 'rack/reducer'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -50,7 +55,7 @@ group :test do
   gem 'database_cleaner'
 end
 
-gem 'vpim-rails', :git => '/Users/stip/projects/repos/vpim-rails/.git/', :branch => 'master'
+gem 'vpim-rails', :git => "git://github.com/stip/vpim-rails.git/"
 gem "ice_cube", :git => "git://github.com/stip/ice_cube.git"
 gem "vcardio", :git => "git://github.com/stip/vcardio.git"
 gem 'ri_cal'
