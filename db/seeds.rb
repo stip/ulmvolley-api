@@ -6,8 +6,26 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-json = ActiveSupport::JSON.decode(File.read('db/seeds/players.json'))
+require 'faker'
 
-json.each do |a|
-  Player.create!(a['name'])
+Player.delete_all
+
+20.times do
+  nick = Faker::Name.unique.female_first_name
+  puts nick
+  name = nick + ' ' + Faker::Name.last_name
+  puts name
+  birthday = Faker::Date.birthday(15,30)
+  puts birthday
+  Player.create(name: name, nick: nick, birthday: birthday)
 end
+
+schedule = IceCube::Schedule.new(start = Time.now, end_time: start + 7200) do |s|
+  s.add_recurrence_rule IceCube::Rule.weekly.day(:tuesday, :friday).count(17)
+end
+
+
+puts schedule.first.start_time.strftime("%y-%m-%d")
+
+
+
