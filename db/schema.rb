@@ -10,15 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_23_122753) do
+ActiveRecord::Schema.define(version: 2018_08_25_175447) do
 
   create_table "attendances", force: :cascade do |t|
     t.integer "player_id", null: false
     t.integer "training_id", null: false
+    t.integer "presence"
+    t.string "reason"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "Presence"
-    t.string "Reason"
+    t.index ["player_id", "training_id"], name: "index_attendances_on_player_id_and_training_id", unique: true
     t.index ["player_id"], name: "index_attendances_on_player_id"
     t.index ["training_id"], name: "index_attendances_on_training_id"
   end

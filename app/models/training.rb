@@ -1,4 +1,4 @@
-require '/usr/local/lib/ruby/gems/2.5.0/gems/rack-reducer-0.1.2/lib/rack/reducer'
+require 'rack/reducer'
 
 class Training < ApplicationRecord
   extend Rack::Reducer

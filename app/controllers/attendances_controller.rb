@@ -25,6 +25,6 @@ class AttendancesController < ApplicationController
   end
 
   def attendance_params
-    params.permit(:player_id, :training_id)
+    params.permit(:player_id, :training_id, :reason, :presence)
   end
 end

@@ -1,4 +1,4 @@
-require '/usr/local/lib/ruby/gems/2.5.0/gems/rack-reducer-0.1.2/lib/rack/reducer'
+require 'rack/reducer'
 
 # the central entity in this app. A Volleyball player with all his facilities :)
 class Player < ApplicationRecord

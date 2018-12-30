@@ -25,7 +25,7 @@ private
   end
 
   def player_params
-    params.permit(:name,:nick,:birthday)
+    params.permit(:name, :nick, :birthday)
   end
 
 end
