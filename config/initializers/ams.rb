@@ -1,3 +1,3 @@
 require 'active_model_serializers'
 
-ActiveModelSerializers.config.adapter = :json
+ActiveModelSerializers.config.adapter = :attributes

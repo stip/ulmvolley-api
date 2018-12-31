@@ -16,8 +16,9 @@ schedule = IceCube::Schedule.new(start = Time.now, end_time: start + 7200) do |s
   s.add_recurrence_rule IceCube::Rule.weekly.day(:tuesday, :friday).count(17)
 end
 
+trainings = []
 schedule.each_occurrence do |o|
-  Training.create(at: o.start_time.to_s)
+  trainings << Training.create(at: o.start_time.to_s).id
 end
 
 Player.delete_all
@@ -28,11 +29,12 @@ Attendance.delete_all
   name = nick + ' ' + Faker::Name.last_name
   birthday = Faker::Date.birthday(15, 30)
   player = Player.create(name: name, nick: nick, birthday: birthday)
-  trainings = []
+  chosen = []
   10.times do
-    trainings << rand(Training.all.size)
-    if trainings.last
-    attendance = Attendance.new(player: player, training: Training.all[rand(Training.all.size)])
+    training = trainings[rand(Training.all.size)]
+    next if chosen.include?(training)
+    chosen << training
+    attendance = Attendance.new(player: player, training: Training.find(training))
     attendance.presence = :no
     attendance.reason = Faker::HeyArnold.quote
     attendance.save

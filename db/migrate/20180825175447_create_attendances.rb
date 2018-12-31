@@ -7,8 +7,7 @@ class CreateAttendances < ActiveRecord::Migration[5.2]
       t.string :reason
 
       t.timestamps null: false
+      t.index [:player_id, :training_id], unique: true
     end
-
-    add_index :attendances, [:player_id, :training_id], unique: true
   end
 end
