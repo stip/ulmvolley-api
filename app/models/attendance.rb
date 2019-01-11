@@ -1,18 +1,11 @@
 # frozen-string-literal: true
 
-require 'rack/reducer'
-
 # Attendances: trainings and match days.
 class Attendance < ApplicationRecord
-  extend Rack::Reducer
+  attr_accessor :participant, :reason
 
   belongs_to :player
   belongs_to :training
 
-  enum presence: %I[no maybe yes]
-
-  reduces all, filters: [
-    ->(player:) { where(player_id: player) },
-    ->(training:) { where(training_id: training) }
-  ]
+  enum participation: { no: 0, maybe: 1, yes: 2 }
 end

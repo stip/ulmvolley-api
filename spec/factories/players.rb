@@ -7,6 +7,7 @@ FactoryBot.define do
 
     trait :with_training do
       after(:create) do |player|
+
         player.trainings << create(:training)
       end
     end

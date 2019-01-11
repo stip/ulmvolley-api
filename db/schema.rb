@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2018_12_23_122753) do
     t.integer "training_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "presence"
+    t.string "participant"
     t.string "reason"
     t.index ["player_id", "training_id"], name: "index_attendances_player_training", unique: true
     t.index ["player_id"], name: "index_attendances_on_player_id"

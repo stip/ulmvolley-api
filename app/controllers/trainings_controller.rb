@@ -3,7 +3,7 @@ class TrainingsController < ApplicationController
   before_action :set_training, only: [:show]
 
   def index
-    @trainings = Training.reduce(params)
+    @trainings = Training.all
     json_response(@trainings)
   end
 

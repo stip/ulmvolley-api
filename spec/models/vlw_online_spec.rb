@@ -1,12 +1,12 @@
 require 'vlw_online'
 
 RSpec.describe VlwOnline, "#youth" do
-  isU20_20000101 = VlwOnline.belongs_to_youth(:u20,Date.new(2000,1,1))
-  isU20_19981231 = VlwOnline.belongs_to_youth(:u20,Date.new(1998,12,31))
-  isU18_20011231 = VlwOnline.belongs_to_youth(:u18,Date.new(2001,12,31))
-  isU18_20020417 = VlwOnline.belongs_to_youth(:u18,Date.new(2002,04,17))
-  isU16_20041231 = VlwOnline.belongs_to_youth(:u16,Date.new(2004,12,31))
-  isU16_20080808 = VlwOnline.belongs_to_youth(:u16,Date.new(2008,8,8))
+  isU20_20000101 = VlwOnline.belongs_to_youth(:u20,Date.new(2001,1,1))
+  isU20_19981231 = VlwOnline.belongs_to_youth(:u20,Date.new(1999,12,31))
+  isU18_20011231 = VlwOnline.belongs_to_youth(:u18,Date.new(2002,12,31))
+  isU18_20020417 = VlwOnline.belongs_to_youth(:u18,Date.new(2003,04,17))
+  isU16_20041231 = VlwOnline.belongs_to_youth(:u16,Date.new(2005,12,31))
+  isU16_20080808 = VlwOnline.belongs_to_youth(:u16,Date.new(2009,8,8))
 
   it 'checks belonging to youth classes correctly' do
     expect(isU20_20000101).to eq true

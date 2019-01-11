@@ -29,13 +29,13 @@ Attendance.delete_all
   name = nick + ' ' + Faker::Name.last_name
   birthday = Faker::Date.birthday(15, 30)
   player = Player.create(name: name, nick: nick, birthday: birthday)
-  chosen = []
+  chosen_trainings = []
   10.times do
     training = trainings[rand(Training.all.size)]
-    next if chosen.include?(training)
-    chosen << training
+    next if chosen_trainings.include?(training)
+    chosen_trainings << training
     attendance = Attendance.new(player: player, training: Training.find(training))
-    attendance.presence = :no
+    attendance.participant = :no
     attendance.reason = Faker::HeyArnold.quote
     attendance.save
   end
